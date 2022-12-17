@@ -1,10 +1,12 @@
+# /lib/systemd/system/connect-mc.service
+
 [Unit]
 Description=script to connect to tellur_yu server.
 After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=screen -AmdS connect-mc cloudflared access tcp --hostname mc-test.tellur-yu.net --url localhost:24834 
+ExecStart=/usr/bin/screen -AmdS connect-mc /usr/local/bin/cloudflared access tcp --hostname mc-test.tellur-yu.net --url localhost:24834 
 
 [Install]
 WantedBy=multi-user.target
